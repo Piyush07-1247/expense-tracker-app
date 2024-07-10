@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('ideal-budget')">Ideal Budget</a></li>
+            <li><a href="#" onclick="showPage('daily-expenses')">Daily Expenses</a></li>
+            <li><a href="#" onclick="showPage('comparison')">Comparison</a></li>
+            <li><a href="#" onclick="showPage('monthly-data')">Monthly Data</a></li>
+        </ul>
+    </nav>
+
+    <div id="ideal-budget" class="page">
+        <h2>Ideal Budget</h2>
+        <form id="ideal-budget-form">
+            <label for="total-budget">Total Monthly Budget:</label>
+            <input type="number" id="total-budget" name="total-budget" required>
+            
+            <h3>Categories</h3>
+            <div id="categories">
+                <div class="category">
+                    <label>Category Name:</label>
+                    <input type="text" name="category-name">
+                    <label>Amount:</label>
+                    <input type="number" name="category-amount">
+                </div>
+            </div>
+            <button type="button" onclick="addCategory()">Add Category</button>
+            <button type="submit">Save Budget</button>
+        </form>
+    </div>
+
+    <div id="daily-expenses" class="page" style="display:none;">
+        <h2>Daily Expenses</h2>
+        <form id="daily-expense-form">
+            <label for="expense-description">Description:</label>
+            <input type="text" id="expense-description" name="expense-description" required>
+            <label for="expense-amount">Amount:</label>
+            <input type="number" id="expense-amount" name="expense-amount" required>
+            <label for="expense-category">Category:</label>
+            <select id="expense-category" name="expense-category" required></select>
+            <button type="submit">Add Expense</button>
+        </form>
+        <div id="expense-list"></div>
+        <h3>Remaining Balance: <span id="remaining-balance"></span></h3>
+    </div>
+
+    <div id="comparison" class="page" style="display:none;">
+        <h2>Comparison</h2>
+        <div id="comparison-data"></div>
+    </div>
+
+    <div id="monthly-data" class="page" style="display:none;">
+        <h2>Monthly Data</h2>
+        <form id="save-monthly-data-form">
+            <label for="month-select">Select Month:</label>
+            <input type="month" id="month-select" name="month" required>
+            <button type="submit">View Data</button>
+        </form>
+        <div id="monthly-data-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
